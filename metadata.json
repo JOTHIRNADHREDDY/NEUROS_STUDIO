@@ -1,0 +1,6 @@
+{
+  "name": "NEUROS Studio",
+  "description": "Robotics OS for Intelligent Machines",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

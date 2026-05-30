@@ -1,0 +1,101 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "neuros"
+version         = "0.1.0"
+description     = "NEUROS OS — Universal Robot Operating System. One OS. Every Robot."
+readme          = "README.md"
+license         = { text = "MIT" }
+requires-python = ">=3.9"
+
+authors = [
+  { name = "NEUROS OS Team" },
+]
+
+keywords = [
+  "robotics", "robot os", "ros2", "arduino", "raspberry-pi",
+  "embedded", "real-time", "autonomous", "neuros"
+]
+
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Software Development :: Embedded Systems",
+  "Topic :: System :: Operating System",
+]
+
+# Phase 1 core: zero mandatory dependencies (works without hardware)
+dependencies = []
+
+[project.optional-dependencies]
+# Hardware
+arduino   = ["pyserial>=3.5"]
+rpi       = ["RPi.GPIO>=0.7"]    # Phase 2
+
+# AI (Phase 3)
+ai        = ["openai>=1.0", "anthropic>=0.20"]
+
+# Simulation
+sim       = ["numpy>=1.24"]
+
+# Development / testing
+dev = [
+  "pytest>=7.4",
+  "pytest-cov",
+  "mypy",
+  "ruff",
+  "black",
+  "pyserial>=3.5",
+  "numpy>=1.24",
+]
+
+# Full install
+all = [
+  "pyserial>=3.5",
+  "numpy>=1.24",
+]
+
+[project.scripts]
+neuros = "neuros.cli:main"
+
+[project.urls]
+Homepage      = "https://neuros.io"
+Documentation = "https://docs.neuros.io"
+Repository    = "https://github.com/neuros-os/neuros"
+"Bug Tracker" = "https://github.com/neuros-os/neuros/issues"
+
+# ── setuptools config ─────────────────────────────────────────────────────
+[tool.setuptools.packages.find]
+where = ["."]
+
+# ── Ruff linter ────────────────────────────────────────────────────────────
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+select = ["E", "F", "I", "UP", "B", "C4", "SIM"]
+ignore  = ["E501"]
+
+# ── mypy ──────────────────────────────────────────────────────────────────
+[tool.mypy]
+python_version  = "3.9"
+strict          = false
+ignore_missing_imports = true
+
+# ── pytest ────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths   = ["tests"]
+addopts     = "-v --tb=short"
+log_cli     = true
+log_level   = "WARNING"

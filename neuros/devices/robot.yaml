@@ -1,0 +1,38 @@
+# NEUROS V2 — Example robot device definition
+# =============================================
+# This file declares all hardware peripherals attached to the robot.
+# Load it at startup with:
+#
+#     from neuros.devices.registry import DeviceRegistry
+#     registry = DeviceRegistry()
+#     registry.load_from_yaml("neuros/devices/robot.yaml")
+
+robot:
+  id: robot01
+  type: rover
+
+devices:
+  motor_left:
+    type: motor
+    driver: bts7960
+    pins: [5, 6]
+
+  motor_right:
+    type: motor
+    driver: bts7960
+    pins: [9, 10]
+
+  camera_front:
+    type: camera
+    driver: usb_camera
+    port: "/dev/video0"
+
+  lidar:
+    type: lidar
+    driver: rplidar
+    port: "/dev/ttyUSB0"
+
+  imu:
+    type: imu
+    driver: mpu6050
+    i2c_address: 0x68

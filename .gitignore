@@ -1,0 +1,67 @@
+node_modules/
+.next/
+.next
+node_modules
+coverage/
+.venv/
+.DS_Store
+*.log
+.env*
+.env
+.env.local
+!.env.example
+dist/
+.vercel
+firebase-debug.log
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.tsbuildinfo
+
+# Sensitive files - do not commit credentials, keys, or secrets
+# Environment and secret files
+.env.*
+secrets.json
+secrets/
+
+# Private keys and certificates
+*.pem
+*.key
+*.pfx
+*.p12
+*.jks
+*.keystore
+*.crt
+*.csr
+
+# SSH keys
+.ssh/
+id_rsa
+id_rsa.pub
+id_ecdsa
+id_ecdsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Cloud provider credentials
+.aws/
+.aws/credentials
+.azure/
+.gcloud/
+
+# Docker credentials
+.docker/
+docker/config.json
+
+# NPM / npmrc
+.npmrc
+
+# other sensitive files
+.netrc
+credentials.json
+*.secret
+.secrets
+
+# Editor credentials / settings
+.vscode/

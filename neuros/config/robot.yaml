@@ -1,0 +1,10 @@
+robot:
+  id: "neuros-default"
+  name: "My Robot"
+  type: "rover"
+  description: "Default NEUROS robot configuration"
+
+hardware:
+  board: "simulator"
+  port: null
+  baudrate: 115200

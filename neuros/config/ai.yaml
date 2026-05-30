@@ -1,0 +1,18 @@
+ai:
+  provider: "openai"
+  model: "gpt-4o"
+  temperature: 0.2
+  max_tokens: 2048
+  timeout_seconds: 30
+
+agents:
+  planner:
+    enabled: true
+  robotics:
+    enabled: true
+  vision:
+    enabled: true
+  memory:
+    enabled: true
+  code:
+    enabled: false

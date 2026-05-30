@@ -1,0 +1,14 @@
+runtime:
+  host: "0.0.0.0"
+  port: 8000
+  log_level: "INFO"
+  max_workers: 4
+  tick_rate_hz: 50
+
+database:
+  engine: "sqlite"
+  path: "data/neuros.db"
+
+websocket:
+  enabled: true
+  max_connections: 50

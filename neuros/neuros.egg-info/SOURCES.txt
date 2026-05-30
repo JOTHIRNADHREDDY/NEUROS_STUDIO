@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+neuros.egg-info/PKG-INFO
+neuros.egg-info/SOURCES.txt
+neuros.egg-info/dependency_links.txt
+neuros.egg-info/entry_points.txt
+neuros.egg-info/requires.txt
+neuros.egg-info/top_level.txt

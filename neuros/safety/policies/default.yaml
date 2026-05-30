@@ -1,0 +1,31 @@
+# NEUROS Safety Policies
+# These policies define operational constraints for the robot.
+
+emergency_stop:
+  enabled: true
+  bypass_all_layers: true
+  requires_manual_release: true
+
+watchdog:
+  enabled: true
+  check_interval_s: 1.0
+  battery_warning_v: 11.0
+  battery_critical_v: 10.0
+  cpu_warning_percent: 85.0
+  cpu_critical_percent: 95.0
+  temp_warning_c: 65.0
+  temp_critical_c: 75.0
+
+sandbox:
+  enabled: true
+  max_param_depth: 5
+  block_dangerous_imports: true
+  block_file_access: true
+  block_network_access: true
+
+operational_rules:
+  max_continuous_runtime_hours: 8
+  require_battery_check_before_mission: true
+  require_system_check_before_mission: false
+  auto_stop_on_low_battery: true
+  auto_stop_on_high_temperature: true

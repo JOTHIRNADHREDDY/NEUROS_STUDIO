@@ -1,0 +1,21 @@
+safety:
+  enabled: true
+  emergency_stop_priority: 0
+
+limits:
+  motor:
+    max_pwm: 200
+    max_speed_ms: 1.5
+  servo:
+    min_angle: 0
+    max_angle: 180
+  battery:
+    min_voltage: 10.5
+    critical_voltage: 9.5
+  temperature:
+    max_celsius: 75
+    warning_celsius: 65
+  workspace:
+    max_x: 10.0
+    max_y: 10.0
+    max_z: 5.0

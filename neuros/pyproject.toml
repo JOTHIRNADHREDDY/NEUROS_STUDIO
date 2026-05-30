@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neuros"
+version = "2.0.0a1"
+description = "AI Middleware for Robotics — The easiest way to build AI-powered robots."
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "NEUROS Team"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+# Zero mandatory dependencies for the core SDK
+dependencies = []
+
+[project.optional-dependencies]
+arduino = ["pyserial>=3.5"]
+rpi = ["RPi.GPIO>=0.7.0", "smbus2>=0.4.0"]
+jetson = ["Jetson.GPIO>=2.0.0"]
+ai = ["openai>=1.0.0"]
+runtime = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "websockets>=11.0.3",
+    "pyyaml>=6.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.0.0",
+    "jsonschema>=4.0.0",
+    "psutil>=5.9.0",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+]
+all = [
+    "neuros[arduino]",
+    "neuros[rpi]",
+    "neuros[ai]",
+    "neuros[runtime]",
+    "neuros[dev]",
+]
+
+[project.scripts]
+neuros = "neuros.sdk.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["neuros*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
